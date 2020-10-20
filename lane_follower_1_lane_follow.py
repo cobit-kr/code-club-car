@@ -43,8 +43,8 @@ p.start(0)
 p2 = IO.PWM(pwmPin2, 100)
 p2.start(0)
 
-p.ChangeDutyCycle(20)
-p2.ChangeDutyCycle(20)
+p.ChangeDutyCycle(100)
+p2.ChangeDutyCycle(100)
 
 while True:
 	ret, img_org = cap.read()
@@ -56,6 +56,7 @@ while True:
 			pass
 		else:
 			print(angle)
+			cv2.imshow("img", img_lane)
 			kit.servo[0].angle = angle
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
